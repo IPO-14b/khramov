@@ -1,9 +1,9 @@
 <html>
-<BODY BGCOLOR="#444444" TEXT="#004400" VLINK="#FF8844" onload="onloadmes()">
-<head>
-<TITLE>face GAME</TITLE>
-<pre>
-<SCRIPT LANGUAGE="JavaScript">
+    <BODY BGCOLOR="#444444" TEXT="#004400" VLINK="#FF8844" onload="onloadmes()">
+        <head>
+            <TITLE>face GAME</TITLE>
+            <pre>
+            <SCRIPT LANGUAGE="JavaScript">
 var timerID = null
 var patno=1
 var cr="\r\n"                  //for windows
@@ -36,31 +36,31 @@ function array1(arn) {         //hanyou hairetu sakusei
      }
 
 function onloadmes(){
-document.fmark.win.value=" "
-cr = unescape("%0A")
-ver=navigator.appVersion
-len=ver.length
-for(iln=0;iln<len;iln++) if(ver.charAt(iln)=="(") break
-systm = ver.charAt(iln+1).toUpperCase()
-if(systm=="M"){cr = unescape("%0D")}
-if(systm=="W"){cr = unescape("%0D")+cr}
-if(systm=="C"){
-               cr = unescape("%0D")+cr
-               tmpsys = ver.charAt(0).toUpperCase()
-               if (tmpsys == 4){cr = unescape("%0D")}
+    document.fmark.win.value=" "
+    cr = unescape("%0A")
+    ver=navigator.appVersion
+    len=ver.length
+    for(iln=0;iln<len;iln++) if(ver.charAt(iln)=="(") break
+    systm = ver.charAt(iln+1).toUpperCase()
+    if(systm=="M"){cr = unescape("%0D")}
+    if(systm=="W"){cr = unescape("%0D")+cr}
+    if(systm=="C"){
+        cr = unescape("%0D")+cr
+        tmpsys = ver.charAt(0).toUpperCase()
+        if (tmpsys == 4){cr = unescape("%0D")}
 }
 // document.fmark.win.value=ver
- starter()
+    starter()
 }
 
 function init(){               //syokika
-blankx = new array1(63)        //Dim blankx(63)
-for (var makeblank = 0;makeblank < 63;makeblank++){
+    blankx = new array1(63)        //Dim blankx(63)
+    for (var makeblank = 0;makeblank < 63;makeblank++){
         blankx[makeblank]=""
         for (var addBlank = 0; addBlank < makeblank; addBlank++) {
-        blankx[makeblank] = blankx[makeblank] + " "
+            blankx[makeblank] = blankx[makeblank] + " "
         }
-}
+    }
 faker = new array1(24);        //faker(1) to (24) = facemark active flag
 face = new array1(2);          //Dim face(2)
 face[1]=" (^O^) "
@@ -71,19 +71,19 @@ interval1()
 }
 </SCRIPT>
 </pre>
-</head>
-<BODY>
-<FORM NAME="fmark">
-<center>
-<textarea NAME="win" rows=20 cols=63>
-</textarea>
-</center>
-<center>
-<pre><INPUT TYPE="button" VALUE="  " ONCLICK="golmax()"><INPUT TYPE="button" VALUE=" LEFT " ONCLICK="goleft()"> <INPUT TYPE="button" VALUE="FIRE" ONCLICK="fire()"> <INPUT TYPE="button" VALUE="RIGHT" ONCLICK="goright()"><INPUT TYPE="button" VALUE="  " ONCLICK="gormax()"></pre>
-</center>
-<br><p>
-<center><pre><INPUT TYPE="button" VALUE="     RESET     " ONCLICK="restarter()"></pre></center>
-<hr>
-</FORM>
-</BODY>
-</HTML>
+        </head>
+        <BODY>
+            <FORM NAME="fmark">
+                <center>
+                    <textarea NAME="win" rows=20 cols=63>
+                    </textarea>
+                </center>
+                <center>
+                    <pre><INPUT TYPE="button" VALUE="  " ONCLICK="golmax()"><INPUT TYPE="button" VALUE=" LEFT " ONCLICK="goleft()"> <INPUT TYPE="button" VALUE="FIRE" ONCLICK="fire()"> <INPUT TYPE="button" VALUE="RIGHT" ONCLICK="goright()"><INPUT TYPE="button" VALUE="  " ONCLICK="gormax()"></pre>
+                    </center>
+                    <br><p>
+                    <center><pre><INPUT TYPE="button" VALUE="     RESET     " ONCLICK="restarter()"></pre></center>
+                    <hr>
+                    </FORM>
+                    </BODY>
+                    </HTML>
