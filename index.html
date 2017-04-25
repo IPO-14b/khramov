@@ -19,6 +19,36 @@ var missiley=99
 var mychrx=1                   //my chractor position
 var myblank=""
 var mymove=0
+var spcf1=""
+var spcf2=""
+var spcf3=""
+var hitflag=0
+var score=0
+var selec=0                    //machine select
+var mname=" Windows is"
+var rsmiss=""                  //missile no hit R side
+
+function array1(arn) {         //hanyou hairetu sakusei
+   this.length = arn;
+   for (var ar1 = 0; ar1 <= arn; ar1++) {
+     this[ar1] = 1 }
+     return this
+     }
+
+function onloadmes(){
+document.fmark.win.value=" "
+cr = unescape("%0A")
+ver=navigator.appVersion
+len=ver.length
+for(iln=0;iln<len;iln++) if(ver.charAt(iln)=="(") break
+systm = ver.charAt(iln+1).toUpperCase()
+if(systm=="M"){cr = unescape("%0D")}
+if(systm=="W"){cr = unescape("%0D")+cr}
+if(systm=="C"){
+               cr = unescape("%0D")+cr
+               tmpsys = ver.charAt(0).toUpperCase()
+               if (tmpsys == 4){cr = unescape("%0D")}
+}
 </SCRIPT>
 </pre>
 </head>
