@@ -162,6 +162,40 @@ if (downno >= 12) {gameover()}
       downlf=downlf+blankx[missilex]+"|"+cr
       }else{downlf=downlf+cr}
    }
+   
+//facemark change
+ if (inplay == 1){
+   patno=patno+1
+   if (patno >= 3) {patno = 1}
+   
+//face aria
+
+     for (var addline = 1; addline < 5; addline++){
+     mestotal[addline]=totalblank
+     rsmiss=""
+       if (missiley == (downno+addline*2-2)){
+        if (blankno <= missilex){
+          hitflag=parseInt((missilex-blankno)/7,10)
+          if (hitflag < 6){
+            if ((missilex-blankno-(hitflag*7)) >= 1){
+             if ((missilex-blankno-(hitflag*7)) <= 5){
+               if (faker[(addline*6)+hitflag-5] == 1){
+                 faker[(addline*6)+hitflag-5] = 0
+                 missiley=99
+               }
+             }
+            }
+			}else{if (missilex > (blankno+42)){
+                    rsmiss=blankx[missilex-blankno-42]+"|"
+                                            }
+          }
+        }else{
+         mestotal[addline]=blankx[missilex]+"|"
+         if (missilex < (blankno-1)){
+           mestotal[addline]=mestotal[addline]+blankx[blankno-1-missilex]
+                                   }
+        }
+       }
 </SCRIPT>
 </pre>
         </head>
