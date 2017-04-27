@@ -91,6 +91,25 @@ function starter(){
 document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+"                          Are you ready?"+cr+cr+cr+"                           Click FIRE!"
 selec=1
 }
+
+function goleft(){
+ mymove=0
+ mychrx=mychrx-1
+ if (mychrx <= 0){mychrx=1}
+}
+function goright(){
+ mymove=0
+ mychrx=mychrx+1
+ if (mychrx >= 56){mychrx=55}
+}
+
+function golmax(){
+if (inplay == 1){mymove=-1}
+}
+
+function gormax(){
+if (inplay == 1){mymove=1}
+}
 </SCRIPT>
 </pre>
         </head>
