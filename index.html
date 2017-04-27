@@ -185,7 +185,17 @@ if (downno >= 12) {gameover()}
                }
              }
             }
-			
+			}else{if (missilex > (blankno+42)){
+                    rsmiss=blankx[missilex-blankno-42]+"|"
+                                            }
+          }
+        }else{
+         mestotal[addline]=blankx[missilex]+"|"
+         if (missilex < (blankno-1)){
+           mestotal[addline]=mestotal[addline]+blankx[blankno-1-missilex]
+                                   }
+        }
+       }
 </SCRIPT>
 </pre>
         </head>
