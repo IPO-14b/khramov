@@ -69,6 +69,99 @@ mestotal =new array1(4)        //Dim mestotal(4)
 
 interval1()
 }
+
+function restarter(){
+inplay=0
+blankno=0
+totalblank=""
+lr=1
+lowerlf=""
+downlf=""
+downno=0
+missilex=99
+missiley=99
+mychrx=1
+myblank=""
+mymove=0
+selec=1
+starter()
+}
+
+function starter(){
+document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+"                          Are you ready?"+cr+cr+cr+"                           Click FIRE!"
+selec=1
+}
+
+function goleft(){
+ mymove=0
+ mychrx=mychrx-1
+ if (mychrx <= 0){mychrx=1}
+}
+function goright(){
+ mymove=0
+ mychrx=mychrx+1
+ if (mychrx >= 56){mychrx=55}
+}
+
+function golmax(){
+if (inplay == 1){mymove=-1}
+}
+
+function gormax(){
+if (inplay == 1){mymove=1}
+}
+
+function fire(){
+if (inplay == 0){if (selec == 1){selec=9
+                                 inplay=1
+                                 init()}
+}else{
+ if (missiley == 99){missiley=18
+                     missilex=mychrx+3}
+ }
+}
+
+function gameover(){           //GAME OVER syori
+score=0
+for (var enerme=1;enerme<25;enerme++){
+  if (faker[enerme] == 1){score=score+1}
+}
+ if (score == 0){
+document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+cr+"                        Congratulation!"+cr+cr+"                          ALL CREAR!!"
+}else{
+document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+cr+"                           GAME OVER"+cr+cr+"                        "+score+" ENEMY REMAINED"
+
+
+}
+inplay=0
+}
+
+function interval1(){          //warikomisyori 1
+if (missiley != 99) {missiley=missiley-1}
+if (missiley < 0){missiley=99}
+
+mychrx=mychrx+mymove
+if (mychrx <= 0){mychrx=1}
+if (mychrx >= 56){mychrx=55}
+blankno=blankno+lr             //offset count up
+totalblank = blankx[blankno]   //offset syori
+if (blankno >= 20) {lr=-1
+                    downno=downno+1
+                    blankno=20
+                   }
+if (blankno <= 0) {lr=1
+                    downno=downno+1
+                    blankno=0
+                   }
+if (downno >= 12) {gameover()}
+
+//upper side aria
+   downlf=""
+   for (var upperspc=0;upperspc<downno;upperspc++){
+      if (missiley == upperspc){
+      downlf=downlf+blankx[missilex]+"|"+cr
+      }else{downlf=downlf+cr}
+   }
 </SCRIPT>
 </pre>
         </head>
