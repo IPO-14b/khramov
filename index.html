@@ -29,11 +29,6 @@ var mname=" Windows is"
 var rsmiss=""                  //missile no hit R side
 /**
 * Функция для работы с массивом
-*
-* Модуль создается для управления при помощи
-* контроллера (происходит управление данными
-* (моделью)).
-*
 */
 function array1(arn) {         //hanyou hairetu sakusei
    this.length = arn;
@@ -41,7 +36,9 @@ function array1(arn) {         //hanyou hairetu sakusei
      this[ar1] = 1 }
      return this
      }
-
+/**
+* Функция для загрузки игры
+*/
 function onloadmes(){
     document.fmark.win.value=" "
     cr = unescape("%0A")
@@ -59,7 +56,9 @@ function onloadmes(){
 // document.fmark.win.value=ver
     starter()
 }
-
+/**
+* Функция для инициализации игры
+*/
 function init(){               //syokika
     blankx = new array1(63)        //Dim blankx(63)
     for (var makeblank = 0;makeblank < 63;makeblank++){
@@ -76,7 +75,9 @@ mestotal =new array1(4)        //Dim mestotal(4)
 
 interval1()
 }
-
+/**
+* Функция для перезапуска игры
+*/
 function restarter(){
 inplay=0
 blankno=0
@@ -98,26 +99,37 @@ function starter(){
 document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+"                          Are you ready?"+cr+cr+cr+"                           Click FIRE!"
 selec=1
 }
-
+/**
+* Функция для перемещения влево
+*/
 function goleft(){
  mymove=0
  mychrx=mychrx-1
  if (mychrx <= 0){mychrx=1}
 }
+/**
+* Функция для перемещения вправо
+*/
 function goright(){
  mymove=0
  mychrx=mychrx+1
  if (mychrx >= 56){mychrx=55}
 }
-
+/**
+* Функция для ограничения влево
+*/
 function golmax(){
 if (inplay == 1){mymove=-1}
 }
-
+/**
+* Функция для ограничения вправо
+*/
 function gormax(){
 if (inplay == 1){mymove=1}
 }
-
+/**
+* Функция для стрельбы
+*/
 function fire(){
 if (inplay == 0){if (selec == 1){selec=9
                                  inplay=1
@@ -127,7 +139,9 @@ if (inplay == 0){if (selec == 1){selec=9
                      missilex=mychrx+3}
  }
 }
-
+/**
+* Функция для завершения игры
+*/
 function gameover(){           //GAME OVER syori
 score=0
 for (var enerme=1;enerme<25;enerme++){
