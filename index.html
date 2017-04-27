@@ -196,6 +196,39 @@ if (downno >= 12) {gameover()}
                                    }
         }
        }
+	   
+	   for (var addfaker = 1; addfaker < 7; addfaker++){
+           if (faker[(addline*6)+addfaker-6] == 1){
+                 mestotal[addline]=mestotal[addline]+face[patno]
+           }else{mestotal[addline]=mestotal[addline]+"       "}
+        }
+        mestotal[addline]=mestotal[addline]+rsmiss
+     }
+
+//space line in face aria
+   spcf1=cr
+   spcf2=cr
+   spcf3=cr
+   if (missiley == (downno+1)){spcf1=blankx[missilex]+"|"+cr}
+   if (missiley == (downno+3)){spcf2=blankx[missilex]+"|"+cr}
+   if (missiley == (downno+5)){spcf3=blankx[missilex]+"|"+cr}
+
+//lower side aria
+   lowerlf=""
+   for (var lowerspc=0;lowerspc<(11-downno);lowerspc++){
+      if (missiley == (downno+7+lowerspc)){
+      lowerlf=lowerlf+blankx[missilex]+"|"+cr
+      }else{lowerlf=lowerlf+cr}
+   }
+   myblank=blankx[mychrx]
+
+   document.fmark.win.value = downlf+mestotal[1]+cr+spcf1+mestotal[2]+cr+spcf2+mestotal[3]+cr+spcf3+mestotal[4]+cr+lowerlf+myblank+"  _A_  "+cr+myblank+" [___] "
+
+   timerID = setTimeout("interval1()",250)
+ }
+}
+
+//-->
 </SCRIPT>
 </pre>
         </head>
