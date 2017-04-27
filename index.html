@@ -136,7 +136,32 @@ document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+cr+"                           GAM
 inplay=0
 }
 
+function interval1(){          //warikomisyori 1
+if (missiley != 99) {missiley=missiley-1}
+if (missiley < 0){missiley=99}
 
+mychrx=mychrx+mymove
+if (mychrx <= 0){mychrx=1}
+if (mychrx >= 56){mychrx=55}
+blankno=blankno+lr             //offset count up
+totalblank = blankx[blankno]   //offset syori
+if (blankno >= 20) {lr=-1
+                    downno=downno+1
+                    blankno=20
+                   }
+if (blankno <= 0) {lr=1
+                    downno=downno+1
+                    blankno=0
+                   }
+if (downno >= 12) {gameover()}
+
+//upper side aria
+   downlf=""
+   for (var upperspc=0;upperspc<downno;upperspc++){
+      if (missiley == upperspc){
+      downlf=downlf+blankx[missilex]+"|"+cr
+      }else{downlf=downlf+cr}
+   }
 </SCRIPT>
 </pre>
         </head>
