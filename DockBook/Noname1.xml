@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
+<article>
+  <title>Try Hard The game</title>
+  <articleinfo>
+    <surname>Khramov </surname>
+  </articleinfo>
+  <abstract>
+    <title>Руководство программиста</title>
+    <para>Данный документ описывает сценарии взаимодействия пользователя с ПО.</para>
+  </abstract>
+  <abstract/>
+  <abstract>
+    <title>Пример №1</title>
+    <para>Пользователь нажимает кнопку &quot;Fire&quot; и начинается игра.</para>
+  </abstract>
+  <abstract>
+    <title>Пример №2</title>
+    <para>Пользователь нажимает кнопку &quot;Fire&quot; для стрельбы и кнопки &quot;Left&quot; &amp; &quot;Right&quot; для перемещения по полю.</para>
+  </abstract>
+  <abstract>
+    <title>Пример №3</title>
+    <para>Пользователь нажимает кнопку &quot;Reset&quot; для сброса игрового цикла.</para>
+  </abstract>
+</article>
