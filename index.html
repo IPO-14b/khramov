@@ -121,6 +121,21 @@ if (inplay == 0){if (selec == 1){selec=9
  }
 }
 
+function gameover(){           //GAME OVER syori
+score=0
+for (var enerme=1;enerme<25;enerme++){
+  if (faker[enerme] == 1){score=score+1}
+}
+ if (score == 0){
+document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+cr+"                        Congratulation!"+cr+cr+"                          ALL CREAR!!"
+}else{
+document.fmark.win.value=cr+cr+cr+cr+cr+cr+cr+cr+"                           GAME OVER"+cr+cr+"                        "+score+" ENEMY REMAINED"
+
+
+}
+inplay=0
+}
+
 
 </SCRIPT>
 </pre>
