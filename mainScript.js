@@ -24,6 +24,9 @@ var rsmiss=""                  //missile no hit R side
 
 /**
 * Функция для работы с массивом
+*
+* Работа с игровым полем
+*
 */
 function array1(arn) {
     this.length = arn;
@@ -35,6 +38,9 @@ function array1(arn) {
 
 /**
 * Функция для загрузки игры
+*
+* Заполнение поля
+*
 */
 function onloadmes(){
     document.fmark.win.value=" "
@@ -63,6 +69,9 @@ function onloadmes(){
 
 /**
 * Функция для инициализации игры
+*
+* Инициализация игрового цикла
+*
 */
 function init(){
     blankx = new array1(63)
@@ -83,6 +92,9 @@ function init(){
 
 /**
 * Функция для перезапуска игры
+*
+* Перезапись переменных для запуска игры
+*
 */
 function restarter(){
     inplay=0
@@ -108,6 +120,9 @@ function starter(){
 
 /**
 * Функция для перемещения влево
+*
+* Посимвольное перемещение влево
+*
 */
 function goleft(){
     mymove=0
@@ -119,6 +134,9 @@ function goleft(){
 
 /**
 * Функция для перемещения вправо
+*
+* Посимвольное перемешение вправо
+*
 */
 function goright(){
     mymove=0
@@ -130,6 +148,9 @@ function goright(){
 
 /**
 * Функция для ограничения влево
+*
+* Ограничение игрового поля
+*
 */
 function golmax(){
     if (inplay == 1){
@@ -139,6 +160,9 @@ function golmax(){
 
 /**
 * Функция для ограничения вправо
+*
+* Ограничение игрового поля
+*
 */
 function gormax(){
     if (inplay == 1){
@@ -148,6 +172,10 @@ function gormax(){
 
 /**
 * Функция для стрельбы
+*
+* Инициализация стрельбы
+* при нажатии кнопки Fire
+*
 */
 function fire(){
     if (inplay == 0){
@@ -166,6 +194,10 @@ function fire(){
 
 /**
 * Функция для завершения игры
+*
+* Инициализация завершения игры
+* при проигрыше
+*
 */
 function gameover(){           //GAME OVER
     score=0
