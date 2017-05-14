@@ -49,21 +49,21 @@ function onloadmes(){
     len=ver.length;
     for(iln=0;iln<len;iln++){
         if(ver.charAt(iln)=="("){
-		    break;
+	    break;
         }
     }
     systm = ver.charAt(iln+1).toUpperCase();
     if(systm=="M"){
-	    cr = unescape("%0D");
+    	cr = unescape("%0D");
     }
     if(systm=="W"){
-	    cr = unescape("%0D")+cr;
+    	cr = unescape("%0D")+cr;
     }
     if(systm=="C"){
         cr = unescape("%0D")+cr;
         tmpsys = ver.charAt(0).toUpperCase();
         if (tmpsys == 4){
-		    cr = unescape("%0D");
+	        cr = unescape("%0D");
         }
     }
     starter();
