@@ -181,7 +181,7 @@ function goright(){
     mychrx = mychrx + 1;
     
     if (mychrx >= 56){
-	   mychrx =  55;
+	   mychrx = 55;
     }
 }
 
