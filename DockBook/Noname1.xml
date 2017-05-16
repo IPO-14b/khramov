@@ -13,14 +13,14 @@
   <abstract>
     <title>Пример №1</title>
     <para>Пользователь нажимает кнопку &quot;Fire&quot; и начинается игра.</para>
-    <para>function init(){               //syokika
+    <para>function init(){
     </para>
-    <para>blankx = new array1(63)        //Dim </para>
-    <para>blankx(63)
+    <para>blankx = new array1(63);</para>
+    <para>blankx(63);
     </para>
-    <para>for (var makeblank = 0;makeblank &lt; 63;makeblank++){
+    <para>for (var makeblank = 0 ;makeblank &lt; 63; makeblank++){
         </para>
-    <para>blankx[makeblank]=&quot;&quot;
+    <para>blankx[makeblank] = &quot;&quot;
         for (var addBlank = 0; addBlank &lt; makeblank; addBlank++) {
             blankx[makeblank] = blankx[makeblank] + &quot; &quot;
         </para>
@@ -34,14 +34,14 @@
     <para>face = new array1(2);          </para>
     <para>//Dim face(2)
 </para>
-    <para>face[1]=&quot; (^O^) &quot;
+    <para>face[1] = &quot; (^O^) &quot;
 </para>
-    <para>face[2]=&quot; (^-^) &quot;
+    <para>face[2] = &quot; (^-^) &quot;
 </para>
-    <para>mestotal =new array1(4)        //Dim mestotal(4)
+    <para>mestotal = new array1(4);
 
 </para>
-    <para>interval1()
+    <para>interval1();
 </para>
     <para>}</para>
   </abstract>
@@ -54,12 +54,14 @@
 </para>
     <para>function goleft(){
  </para>
-    <para>mymove=0
+    <para>mymove = 0;
  </para>
-    <para>mychrx=mychrx-1
+    <para>mychrx = mychrx - 1;
  </para>
-    <para>if (mychrx &lt;= 0){mychrx=1}
-</para>
+    <para>if (mychrx &lt;= 0){
+            mychrx = 1;
+          }
+  </para>
     <para>}
 </para>
     <para>/**
@@ -68,11 +70,13 @@
 </para>
     <para>function goright(){
  </para>
-    <para>mymove=0
+    <para>mymove = 0;
  </para>
-    <para>mychrx=mychrx+1
+    <para>mychrx = mychrx + 1;
  </para>
-    <para>if (mychrx &gt;= 56){mychrx=55}
+    <para>if (mychrx &gt;= 56){
+            mychrx = 55;
+          }
 </para>
     <para>}</para>
   </abstract>
@@ -81,33 +85,33 @@
     <para>Пользователь нажимает кнопку &quot;Reset&quot; для сброса игрового цикла.</para>
     <para>function restarter(){
 </para>
-    <para>inplay=0
+    <para>inplay = 0;
 </para>
-    <para>blankno=0
+    <para>blankno = 0;
 </para>
-    <para>totalblank=&quot;&quot;
+    <para>totalblank = &quot;&quot;
 </para>
-    <para>lr=1
+    <para>lr = 1;
 </para>
-    <para>lowerlf=&quot;&quot;
+    <para>lowerlf = &quot;&quot;
 </para>
-    <para>downlf=&quot;&quot;
+    <para>downlf = &quot;&quot;
 </para>
-    <para>downno=0
+    <para>downno = 0;
 </para>
-    <para>missilex=99
+    <para>missilex = 99;
 </para>
-    <para>missiley=99
+    <para>missiley = 99;
 </para>
-    <para>mychrx=1
+    <para>mychrx = 1;
 </para>
-    <para>myblank=&quot;&quot;
+    <para>myblank = &quot;&quot;
 </para>
-    <para>mymove=0
+    <para>mymove = 0;
 </para>
-    <para>selec=1
+    <para>selec = 1;
 </para>
-    <para>starter()
+    <para>starter();
 </para>
     <para>}</para>
   </abstract>
