@@ -67,7 +67,7 @@ function array1(arn) {
 *
 */
 function onloadmes(){
-    document.fmark.win.value=" ";
+    document.fmark.win.value = " ";
     cr = unescape("%0A");
     ver = navigator.appVersion;
     len = ver.length;
@@ -78,7 +78,7 @@ function onloadmes(){
         }
     }
     
-    systm = ver.charAt(iln+1).toUpperCase();
+    systm = ver.charAt(iln + 1).toUpperCase();
     
     if(systm == "M"){
     	cr = unescape("%0D");
