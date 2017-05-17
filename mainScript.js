@@ -67,7 +67,7 @@ function array1(arn) {
 * Заполнение поля
 *
 */
-function onloadMes() {
+function onLoadMes() {
     document.fmark.win.value = " ";
     cr = unescape("%0A");
     ver = navigator.appVersion;
@@ -259,7 +259,7 @@ function gameOver() {
     inplay = 0;
 }
 
-function interVal1() {
+function interval1() {
     if (missiley != 99) {
         missiley = missiley - 1;
     }
