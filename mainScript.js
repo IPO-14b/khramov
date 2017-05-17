@@ -1,48 +1,48 @@
 /**
 *@var timerID таймер для последующих сдвигов противника к игроку
-*@var patno изменение метки
-*@var blankno смещение противника
-*@var totalblank общее смещение противников
+*@var patNo изменение метки
+*@var blankNo смещение противника
+*@var totalBlank общее смещение противников
 *@var lr сторона, в которую будет произведено смещение, если -1 смещение в лево, если 1 смещение в право
-*@var lowerlf нижнее боковое пространство
-*@var downlf верхнее боковое пространство
-*@var downno смещение противника вниз
-*@var inplay флаг что игра не закончена
-*@var missilex позиция ракеты х
-*@var missiley позиция ракеты y
-*@var mychrx позиция игрока
-*@var myblank смещение игрока
-*@var mymove ограничение игрового поля
+*@var lowerLf нижнее боковое пространство
+*@var downLf верхнее боковое пространство
+*@var downNo смещение противника вниз
+*@var inPlay флаг что игра не закончена
+*@var missileX позиция ракеты х
+*@var missileY позиция ракеты y
+*@var myChrx позиция игрока
+*@var myBlank смещение игрока
+*@var myMove ограничение игрового поля
 *@var spcf1 линия ракеты на поле
 *@var spcf2 линия ракеты на поле
 *@var spcf3 линия ракеты на поле
-*@var hitflag местонахождение противников на поле
+*@var hitFlag местонахождение противников на поле
 *@var score счёт игрока
 *@var selec количество противников в одной линии
 *@var rsmiss промах ракеты
 */
 var timerID = null;                 
-var patno = 1;
+var patNo = 1;
 var cr = "\r\n";
-var blankno = 0;
-var totalblank = "";
+var blankNo = 0;
+var totalBlank = "";
 var lr = 1;
-var lowerlf = "";
-var downlf = "";
-var downno = 0;
-var inplay = 0;
-var missilex = 99;
-var missiley = 99;
-var mychrx = 1;
-var myblank = "";
-var mymove = 0;
+var lowerLf = "";
+var downLf = "";
+var downNo = 0;
+var inPlay = 0;
+var missileX = 99;
+var missileY = 99;
+var myChrx = 1;
+var myBlank = "";
+var myMove = 0;
 var spcf1 = "";
 var spcf2 = "";
 var spcf3 = "";
-var hitflag = 0;
+var hitFlag = 0;
 var score = 0;
 var selec = 0;
-var rsmiss = "";
+var rsMiss = "";
 
 /**
 * Функция для работы с массивом
@@ -54,8 +54,8 @@ var rsmiss = "";
 function array1(arn) {
     this.length = arn;
     
-    for (var Ar1 = 0; Ar1 <= arn; Ar1++) {
-        this[Ar1] = 1;
+    for (var ar1 = 0; ar1 <= arn; ar1++) {
+        this[ar1] = 1;
     }
     
     return this;
@@ -91,9 +91,9 @@ function onLoadMes() {
     
     if (systm == "C") {
         cr = unescape("%0D") + cr;
-        tmpsys = ver.charAt(0).toUpperCase();
+        tmpSys = ver.charAt(0).toUpperCase();
         
-        if (tmpsys == 4) {
+        if (tmpSys == 4) {
             cr = unescape("%0D");
         }
     }
@@ -108,13 +108,13 @@ function onLoadMes() {
 *
 */
 function init() {
-    blankx = new array1(63);
+    blankX = new array1(63);
     
-    for (var makeblank = 0; makeblank < 63; makeblank++) {
-        blankx[makeblank] = "";
+    for (var makeBlank = 0; makeBlank < 63; makeBlank++) {
+        blankX[makeBlank] = "";
         
-        for (var addBlank = 0; addBlank < makeblank; addBlank++) {
-            blankx[makeblank] = blankx[makeblank] + " ";
+        for (var addBlank = 0; addBlank < makeBlank; addBlank++) {
+            blankX[makeBlank] = blankX[makeBlank] + " ";
         }
     }
     
@@ -122,7 +122,7 @@ function init() {
     face = new array1(2);       //Dim face(2)
     face[1] = " (^O^) ";
     face[2] = " (^-^) ";
-    mestotal = new array1(4);   //Dim mestotal(4)
+    mesTotal = new array1(4);   //Dim mestotal(4)
     
     interval1();
 }
@@ -134,18 +134,18 @@ function init() {
 *
 */
 function restarter() {
-    inplay = 0;
-    blankno = 0;
-    totalblank = "";
+    inPlay = 0;
+    blankNo = 0;
+    totalBlank = "";
     lr = 1;
-    lowerlf = "";
-    downlf = "";
-    downno = 0;
-    missilex = 99;
-    missiley = 99;
-    mychrx = 1;
-    myblank = "";
-    mymove = 0;
+    lowerLf = "";
+    downLf = "";
+    downNo = 0;
+    missileX = 99;
+    missileY = 99;
+    myChrx = 1;
+    myBlank = "";
+    myMove = 0;
     selec = 1;
     starter();
 }
@@ -163,11 +163,11 @@ function starter() {
 *
 */
 function goLeft() {
-    mymove = 0;
-    mychrx = mychrx - 1;
+    myMove = 0;
+    myChrx = myChrx - 1;
     
-    if (mychrx <= 0) {
-        mychrx = 1;
+    if (myChrx <= 0) {
+        myChrx = 1;
     }
 }
 
@@ -178,11 +178,11 @@ function goLeft() {
 *
 */
 function goRight() {
-    mymove = 0;
-    mychrx = mychrx + 1;
+    myMove = 0;
+    myChrx = myChrx + 1;
     
-    if (mychrx >= 56) {
-        mychrx = 55;
+    if (myChrx >= 56) {
+        myChrx = 55;
     }
 }
 
@@ -193,8 +193,8 @@ function goRight() {
 *
 */
 function goLMax() {
-    if (inplay == 1) {
-        mymove = -1;
+    if (inPlay == 1) {
+        myMove = -1;
     }
 }
 
@@ -205,8 +205,8 @@ function goLMax() {
 *
 */
 function goRMax() {
-    if (inplay == 1) {
-        mymove = 1;
+    if (inPlay == 1) {
+        myMove = 1;
     }
 }
 
@@ -218,16 +218,16 @@ function goRMax() {
 *
 */
 function fire() {
-    if (inplay == 0) {
+    if (inPlay == 0) {
         if (selec == 1) {
             selec = 9;
-            inplay = 1;
+            inPlay = 1;
             init();
         }
     } else {
-        if (missiley == 99) {
-            missiley = 18;
-            missilex = mychrx + 3;
+        if (missileY == 99) {
+            missileY = 18;
+            missileX = myChrx + 3;
         }
     }
 }
@@ -242,8 +242,8 @@ function fire() {
 function gameOver() {
     score = 0;
     
-    for (var EnerMe = 1; EnerMe < 25; EnerMe++) {
-        if (faker[EnerMe] == 1) {
+    for (var enerMe = 1; enerMe < 25; enerMe++) {
+        if (faker[enerMe] == 1) {
             score = score + 1;
         }
     }
@@ -256,107 +256,107 @@ function gameOver() {
             + cr + cr + cr + "GAME OVER" + cr + cr + " " + score + "ENEMY REMAINED";
     }
     
-    inplay = 0;
+    inPlay = 0;
 }
 
 function interval1() {
-    if (missiley != 99) {
-        missiley = missiley - 1;
+    if (missileY != 99) {
+        missileY = missileY - 1;
     }
     
-    if (missiley < 0) {
-        missiley = 99;
+    if (missileY < 0) {
+        missileY = 99;
     }
     
-    mychrx = mychrx + mymove;
+    myChrx = myChrx + myMove;
     
-    if (mychrx <= 0) {
-        mychrx = 1;
+    if (myChrx <= 0) {
+        myChrx = 1;
     }
     
-    if (mychrx >= 56) {
-        mychrx = 55;
+    if (myChrx >= 56) {
+        myChrx = 55;
     }
     
-    blankno = blankno + lr;         //offset count up
-    totalblank = blankx[blankno];   //offset syori
+    blankNo = blankNo + lr;         //offset count up
+    totalBlank = blankX[blankNo];   //offset syori
     
-    if (blankno >= 20) {
+    if (blankNo >= 20) {
         lr = -1;
-        downno = downno + 1;
-        blankno = 20;
+        downNo = downNo + 1;
+        blankNo = 20;
     }
     
-    if (blankno <= 0) {
+    if (blankNo <= 0) {
         lr = 1;
-        downno = downno + 1;
-        blankno = 0;
+        downNo = downNo + 1;
+        blankNo = 0;
     }
     
-    if (downno >= 12) {
-        gameover();
+    if (downNo >= 12) {
+        gameOver();
     }
 
    downlf = "";
     
-   for (var UpperSpc = 0; UpperSpc < downno; UpperSpc++) {
-        if (missiley == UpperSpc) {
-            downlf = downlf + blankx[missilex] + "|" + cr;
+   for (var upperSpc = 0; upperSpc < downNo; upperSpc++) {
+        if (missileY == upperSpc) {
+            downlf = downlf + blankX[missileX] + "|" + cr;
         } else {
             downlf = downlf + cr;
         }
    }
    
     //facemark change
-    if (inplay == 1) {
-        patno = patno + 1;
+    if (inPlay == 1) {
+        patNo = patNo + 1;
     }
     
-    if (patno >= 3) {
-        patno = 1;
+    if (patNo >= 3) {
+        patNo = 1;
     }
    
     //face aria
-    for (var AddLine = 1; AddLine < 5; AddLine++) {
-        mestotal[AddLine] = totalblank;
-        rsmiss = "";
+    for (var addLine = 1; addLine < 5; addLine++) {
+        mesTotal[addLine] = totalBlank;
+        rsMiss = "";
         
-        if (missiley == (downno + addline * 2 - 2)) {
-            if (blankno <= missilex) {
-                hitflag = parseInt((missilex-blankno) / 7, 10);
+        if (missileY == (downNo + addLine * 2 - 2)) {
+            if (blankNo <= missileX) {
+                hitFlag = parseInt((missileX-blankNo) / 7, 10);
                 
-                if (hitflag < 6) {
-                    if ((missilex - blankno - (hitflag * 7)) >= 1) {
-                        if ((missilex - blankno - (hitflag * 7)) <= 5) {
-                            if (faker[(addline * 6) + hitflag - 5] == 1) {
-                                faker[(addline * 6) + hitflag - 5] = 0;
-                                missiley = 99;
+                if (hitFlag < 6) {
+                    if ((missileX - blankNo - (hitFlag * 7)) >= 1) {
+                        if ((missileX - blankNo - (hitFlag * 7)) <= 5) {
+                            if (faker[(addLine * 6) + hitFlag - 5] == 1) {
+                                faker[(addLine * 6) + hitFlag - 5] = 0;
+                                missileY = 99;
                             }
                         }
                     }
                 } else {
-                    if (missilex > (blankno + 42)) {
-                        rsmiss = blankx[missilex - blankno - 42] + "|";
+                    if (missileX > (blankNo + 42)) {
+                        rsMiss = blankX[missileX - blankNo - 42] + "|";
                     }
                 }
             } else {
-                mestotal[addline] = blankx[missilex] + "|";
+                mesTotal[addLine] = blankX[missileX] + "|";
                 
-                if (missilex < (blankno - 1)) {
-                    mestotal[addline] = mestotal[addline] + blankx[blankno - 1 - missilex];
+                if (missileX < (blankNo - 1)) {
+                    mesTotal[addLine] = mesTotal[addLine] + blankX[blankNo - 1 - missileX];
                 }
             }
         }
 	   
-        for (var AddFaker = 1; AddFaker < 7; AddFaker++) {
-            if (faker[(addline * 6) + AddFaker - 6] == 1) {
-                mestotal[addline] = mestotal[addline] + face[patno];
+        for (var addFaker = 1; addFaker < 7; addFaker++) {
+            if (faker[(addLine * 6) + addFaker - 6] == 1) {
+                mesTotal[addLine] = mesTotal[addLine] + face[patNo];
             } else {
-		        mestotal[addline] = mestotal[addline] + "       ";
-	        }
+                mesTotal[addLine] = mesTotal[addLine] + "       ";
+            }
         }
         
-        mestotal[addline] = mestotal[addline] + rsmiss;
+        mesTotal[addLine] = mesTotal[addLine] + rsMiss;
     }
 
     //space line in face aria
@@ -364,33 +364,33 @@ function interval1() {
     spcf2 = cr;
     spcf3 = cr;
     
-    if (missiley == (downno + 1)) {
-       spcf1 = blankx[missilex] + "|" + cr;
-	}
-    
-    if (missiley == (downno + 3)) {
-	    spcf2 = blankx[missilex] + "|" + cr;
+    if (missileY == (downNo + 1)) {
+       spcf1 = blankX[missileX] + "|" + cr;
     }
     
-    if (missiley == (downno + 5)) {
-	    spcf3 = blankx[missilex] + "|" + cr;
+    if (missileY == (downNo + 3)) {
+        spcf2 = blankX[missileX] + "|" + cr;
+    }
+    
+    if (missileY == (downNo + 5)) {
+        spcf3 = blankX[missileX] + "|" + cr;
     }
 
     //lower side aria
-    lowerlf = "";
+    lowerLf = "";
     
-    for (var LowerSpc = 0; LowerSpc < (11 - downno); LowerSpc++) {
-        if (missiley == (downno + 7 + LowerSpc)) {
-            lowerlf = lowerlf + blankx[missilex] + "|" + cr;
+    for (var lowerSpc = 0; lowerSpc < (11 - downNo); lowerSpc++) {
+        if (missileY == (downNo + 7 + lowerSpc)) {
+            lowerLf = lowerLf + blankX[missileX] + "|" + cr;
         } else {
-	        lowerlf = lowerlf + cr;
+	        lowerLf = lowerLf + cr;
 		}
     }
     
-    myblank = blankx[mychrx];
-    document.fmark.win.value = downlf + mestotal[1] + cr + spcf1 
-        + mestotal[2] + cr + spcf2 + mestotal[3] + cr + spcf3 
-        + mestotal[4] + cr + lowerlf + myblank + "  _A_  " + cr + myblank + " [___] ";
+    myBlank = blankX[myChrx];
+    document.fmark.win.value = downLf + mesTotal[1] + cr + spcf1 
+        + mesTotal[2] + cr + spcf2 + mesTotal[3] + cr + spcf3 
+        + mesTotal[4] + cr + lowerLf + myBlank + "  _A_  " + cr + myBlank + " [___] ";
     timerID = setTimeout("interval1()", 250);
     }
 }
