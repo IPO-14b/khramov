@@ -54,8 +54,8 @@ var rsmiss = "";
 function array1(arn) {
     this.length = arn;
     
-    for (var ar1 = 0; ar1 <= arn; ar1++) {
-        this[ar1] = 1;
+    for (var Ar1 = 0; Ar1 <= arn; Ar1++) {
+        this[Ar1] = 1;
     }
     
     return this;
@@ -67,33 +67,33 @@ function array1(arn) {
 * Заполнение поля
 *
 */
-function onloadmes(){
+function onloadMes() {
     document.fmark.win.value = " ";
     cr = unescape("%0A");
     ver = navigator.appVersion;
     len = ver.length;
     
-    for(iln = 0; iln < len; iln++){
-        if(ver.charAt(iln) == "("){
+    for (iln = 0; iln < len; iln++) {
+        if (ver.charAt(iln) == "(") {
             break;
         }
     }
     
     systm = ver.charAt(iln + 1).toUpperCase();
     
-    if(systm == "M"){
+    if (systm == "M") {
     	cr = unescape("%0D");
     }
     
-    if(systm == "W"){
+    if (systm == "W") {
     	cr = unescape("%0D") + cr;
     }
     
-    if(systm == "C"){
+    if (systm == "C") {
         cr = unescape("%0D") + cr;
         tmpsys = ver.charAt(0).toUpperCase();
         
-        if (tmpsys == 4){
+        if (tmpsys == 4) {
             cr = unescape("%0D");
         }
     }
@@ -107,10 +107,10 @@ function onloadmes(){
 * Инициализация игрового цикла
 *
 */
-function init(){
+function init() {
     blankx = new array1(63);
     
-    for (var makeblank = 0; makeblank < 63; makeblank++){
+    for (var makeblank = 0; makeblank < 63; makeblank++) {
         blankx[makeblank] = "";
         
         for (var addBlank = 0; addBlank < makeblank; addBlank++) {
@@ -133,7 +133,7 @@ function init(){
 * Перезапись переменных для запуска игры
 *
 */
-function restarter(){
+function restarter() {
     inplay = 0;
     blankno = 0;
     totalblank = "";
@@ -150,7 +150,7 @@ function restarter(){
     starter();
 }
 
-function starter(){
+function starter() {
     document.fmark.win.value = cr + cr + cr + cr + cr 
         + cr + cr + "Are you ready?" + cr + cr + cr + "Click FIRE!";
     selec = 1;
@@ -162,12 +162,12 @@ function starter(){
 * Посимвольное перемещение влево
 *
 */
-function goleft(){
+function goLeft() {
     mymove = 0;
     mychrx = mychrx - 1;
     
-    if (mychrx <= 0){
-	    mychrx = 1;
+    if (mychrx <= 0) {
+        mychrx = 1;
     }
 }
 
@@ -177,12 +177,12 @@ function goleft(){
 * Посимвольное перемешение вправо
 *
 */
-function goright(){
+function goRight() {
     mymove = 0;
     mychrx = mychrx + 1;
     
-    if (mychrx >= 56){
-	   mychrx = 55;
+    if (mychrx >= 56) {
+        mychrx = 55;
     }
 }
 
@@ -192,8 +192,8 @@ function goright(){
 * Ограничение игрового поля
 *
 */
-function golmax(){
-    if (inplay == 1){
+function goLMax() {
+    if (inplay == 1) {
         mymove = -1;
     }
 }
@@ -204,9 +204,9 @@ function golmax(){
 * Ограничение игрового поля
 *
 */
-function gormax(){
-    if (inplay == 1){
-	    mymove = 1;
+function goRMax() {
+    if (inplay == 1) {
+        mymove = 1;
     }
 }
 
@@ -217,15 +217,15 @@ function gormax(){
 * при нажатии кнопки Fire
 *
 */
-function fire(){
-    if (inplay == 0){
-        if (selec == 1){
+function fire() {
+    if (inplay == 0) {
+        if (selec == 1) {
             selec = 9;
             inplay = 1;
             init();
         }
-    }else{
-        if (missiley == 99){
+    } else {
+        if (missiley == 99) {
             missiley = 18;
             missilex = mychrx + 3;
         }
@@ -239,19 +239,19 @@ function fire(){
 * при проигрыше
 *
 */
-function gameover(){
+function gameOver() {
     score = 0;
     
-    for (var enerme=1; enerme < 25; enerme++){
-        if (faker[enerme] == 1){
+    for (var EnerMe = 1; EnerMe < 25; EnerMe++) {
+        if (faker[EnerMe] == 1) {
             score = score + 1;
         }
     }
     
-    if (score == 0){
+    if (score == 0) {
         document.fmark.win.value = cr + cr + cr + cr + cr 
             + cr + cr + cr + "Congratulation!" + cr + cr + "ALL CREAR!!";
-    }else{
+    } else {
         document.fmark.win.value = cr + cr + cr + cr + cr 
             + cr + cr + cr + "GAME OVER" + cr + cr + " " + score + "ENEMY REMAINED";
     }
@@ -259,22 +259,22 @@ function gameover(){
     inplay = 0;
 }
 
-function interval1(){
+function interVal1() {
     if (missiley != 99) {
         missiley = missiley - 1;
     }
     
-    if (missiley < 0){
+    if (missiley < 0) {
         missiley = 99;
     }
     
     mychrx = mychrx + mymove;
     
-    if (mychrx <= 0){
+    if (mychrx <= 0) {
         mychrx = 1;
     }
     
-    if (mychrx >= 56){
+    if (mychrx >= 56) {
         mychrx = 55;
     }
     
@@ -299,16 +299,16 @@ function interval1(){
 
    downlf = "";
     
-   for (var upperspc = 0; upperspc<downno; upperspc++){
-        if (missiley == upperspc){
+   for (var UpperSpc = 0; UpperSpc < downno; UpperSpc++) {
+        if (missiley == UpperSpc) {
             downlf = downlf + blankx[missilex] + "|" + cr;
-        }else{
+        } else {
             downlf = downlf + cr;
         }
    }
    
     //facemark change
-    if (inplay == 1){
+    if (inplay == 1) {
         patno = patno + 1;
     }
     
@@ -317,41 +317,41 @@ function interval1(){
     }
    
     //face aria
-    for (var addline = 1; addline < 5; addline++){
-        mestotal[addline] = totalblank;
+    for (var AddLine = 1; AddLine < 5; AddLine++) {
+        mestotal[AddLine] = totalblank;
         rsmiss = "";
         
-        if (missiley == (downno + addline * 2 - 2)){
-            if (blankno <= missilex){
+        if (missiley == (downno + addline * 2 - 2)) {
+            if (blankno <= missilex) {
                 hitflag = parseInt((missilex-blankno) / 7, 10);
                 
-                if (hitflag < 6){
-                    if ((missilex - blankno - (hitflag * 7)) >= 1){
-                        if ((missilex - blankno - (hitflag * 7)) <= 5){
-                            if (faker[(addline * 6) + hitflag - 5] == 1){
+                if (hitflag < 6) {
+                    if ((missilex - blankno - (hitflag * 7)) >= 1) {
+                        if ((missilex - blankno - (hitflag * 7)) <= 5) {
+                            if (faker[(addline * 6) + hitflag - 5] == 1) {
                                 faker[(addline * 6) + hitflag - 5] = 0;
                                 missiley = 99;
                             }
                         }
                     }
-                }else{
-				    if (missilex > (blankno + 42)){
+                } else {
+                    if (missilex > (blankno + 42)) {
                         rsmiss = blankx[missilex - blankno - 42] + "|";
                     }
                 }
-            }else{
+            } else {
                 mestotal[addline] = blankx[missilex] + "|";
                 
-                if (missilex < (blankno - 1)){
+                if (missilex < (blankno - 1)) {
                     mestotal[addline] = mestotal[addline] + blankx[blankno - 1 - missilex];
                 }
             }
         }
 	   
-	    for (var addfaker = 1; addfaker < 7; addfaker++){
-            if (faker[(addline * 6) + addfaker - 6] == 1){
+        for (var AddFaker = 1; AddFaker < 7; AddFaker++) {
+            if (faker[(addline * 6) + AddFaker - 6] == 1) {
                 mestotal[addline] = mestotal[addline] + face[patno];
-            }else{
+            } else {
 		        mestotal[addline] = mestotal[addline] + "       ";
 	        }
         }
@@ -364,25 +364,25 @@ function interval1(){
     spcf2 = cr;
     spcf3 = cr;
     
-    if (missiley == (downno + 1)){
+    if (missiley == (downno + 1)) {
        spcf1 = blankx[missilex] + "|" + cr;
 	}
     
-    if (missiley == (downno + 3)){
+    if (missiley == (downno + 3)) {
 	    spcf2 = blankx[missilex] + "|" + cr;
     }
     
-    if (missiley == (downno + 5)){
+    if (missiley == (downno + 5)) {
 	    spcf3 = blankx[missilex] + "|" + cr;
     }
 
     //lower side aria
     lowerlf = "";
     
-    for (var lowerspc = 0; lowerspc < (11 - downno); lowerspc++){
-        if (missiley == (downno + 7 + lowerspc)){
+    for (var LowerSpc = 0; LowerSpc < (11 - downno); LowerSpc++) {
+        if (missiley == (downno + 7 + LowerSpc)) {
             lowerlf = lowerlf + blankx[missilex] + "|" + cr;
-        }else{
+        } else {
 	        lowerlf = lowerlf + cr;
 		}
     }
