@@ -1,118 +1,93 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
-<article>
-  <title>Try Hard The game</title>
-  <articleinfo>
-    <surname>Khramov </surname>
-  </articleinfo>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
+<appendix>
+  <appendixinfo>
+    <title>Руководство программиста (Храмов М. ИПО-14Б)</title>
+    <abstract>
+      <title>Try hard</title>
+      <para>Проект Try Hard  является игрой в стиле старых космо - платформеров</para>
+      <para>Играя в игру игрок погружается в воспоминания о начале игровой индустрии.</para>
+    </abstract>
+  </appendixinfo>
+  <title>Сценарий №1</title>
   <abstract>
-    <title>Руководство программиста</title>
-    <para>Данный документ описывает сценарии взаимодействия пользователя с ПО.</para>
+    <title>Сценарий использования 1 - Загрузка игры</title>
+    <para>Пользователь нажимает кнопку Fire и начинается игра.</para>
+    <para>Используются глобальные переменные и функция инициализации игры.</para>
   </abstract>
-  <abstract/>
+  <programlisting>function fire() {
+    if (inPlay == 0) {
+        if (selec == 1) {
+            selec = 9;
+            inPlay = 1;
+            init();
+        }
+    } else {
+        if (missileY == 99) {
+            missileY = 18;
+            missileX = myChrx + 3;
+        }
+    }
+}</programlisting>
   <abstract>
-    <title>Пример №1</title>
-    <para>Пользователь нажимает кнопку &quot;Fire&quot; и начинается игра.</para>
-    <para>function init(){
-    </para>
-    <para>blankx = new array1(63);</para>
-    <para>blankx(63);
-    </para>
-    <para>for (var makeblank = 0 ;makeblank &lt; 63; makeblank++){
-        </para>
-    <para>blankx[makeblank] = &quot;&quot;
-        for (var addBlank = 0; addBlank &lt; makeblank; addBlank++) {
-            blankx[makeblank] = blankx[makeblank] + &quot; &quot;
-        </para>
-    <para>}
-    </para>
-    <para>}
-</para>
-    <para>faker = new array1(24);        </para>
-    <para>//faker(1) to (24) = facemark active flag
-</para>
-    <para>face = new array1(2);          </para>
-    <para>//Dim face(2)
-</para>
-    <para>face[1] = &quot; (^O^) &quot;
-</para>
-    <para>face[2] = &quot; (^-^) &quot;
-</para>
-    <para>mestotal = new array1(4);
+    <title>Сценарий использования 2 - Управление</title>
+    <para>Пользователь нажимает кнопку Fire для стрельбы и кнопки Left Right для перемещения по полю.</para>
+    <para>Применяются стили в зависимости от выбора пользователя. Берется текущая дата.</para>
+  </abstract>
+  <programlisting>function starter() {
+    document.fmark.win.value = cr + cr + cr + cr + cr 
+        + cr + cr + &quot;Are you ready?&quot; + cr + cr + cr + &quot;Click FIRE!&quot;;
+    selec = 1;
+}
 
-</para>
-    <para>interval1();
-</para>
-    <para>}</para>
-  </abstract>
-  <abstract>
-    <title>Пример №2</title>
-    <para>Пользователь нажимает кнопку &quot;Fire&quot; для стрельбы и кнопки &quot;Left&quot; &amp; &quot;Right&quot; для перемещения по полю.</para>
-    <para>/**
+/**
 * Функция для перемещения влево
+*
+* Посимвольное перемещение влево
+*
 */
-</para>
-    <para>function goleft(){
- </para>
-    <para>mymove = 0;
- </para>
-    <para>mychrx = mychrx - 1;
- </para>
-    <para>if (mychrx &lt;= 0){
-            mychrx = 1;
-          }
-  </para>
-    <para>}
-</para>
-    <para>/**
+function goLeft() {
+    myMove = 0;
+    myChrx = myChrx - 1;
+    
+    if (myChrx &lt;= 0) {
+        myChrx = 1;
+    }
+}
+
+/**
 * Функция для перемещения вправо
+*
+* Посимвольное перемешение вправо
+*
 */
-</para>
-    <para>function goright(){
- </para>
-    <para>mymove = 0;
- </para>
-    <para>mychrx = mychrx + 1;
- </para>
-    <para>if (mychrx &gt;= 56){
-            mychrx = 55;
-          }
-</para>
-    <para>}</para>
-  </abstract>
+function goRight() {
+    myMove = 0;
+    myChrx = myChrx + 1;
+    
+    if (myChrx &gt;= 56) {
+        myChrx = 55;
+    }
+}</programlisting>
   <abstract>
-    <title>Пример №3</title>
-    <para>Пользователь нажимает кнопку &quot;Reset&quot; для сброса игрового цикла.</para>
-    <para>function restarter(){
-</para>
-    <para>inplay = 0;
-</para>
-    <para>blankno = 0;
-</para>
-    <para>totalblank = &quot;&quot;
-</para>
-    <para>lr = 1;
-</para>
-    <para>lowerlf = &quot;&quot;
-</para>
-    <para>downlf = &quot;&quot;
-</para>
-    <para>downno = 0;
-</para>
-    <para>missilex = 99;
-</para>
-    <para>missiley = 99;
-</para>
-    <para>mychrx = 1;
-</para>
-    <para>myblank = &quot;&quot;
-</para>
-    <para>mymove = 0;
-</para>
-    <para>selec = 1;
-</para>
-    <para>starter();
-</para>
-    <para>}</para>
+    <title>Сценарий использования 3 - Рестарт</title>
+    <para>Пользователь нажимает кнопку Reset для сброса игрового цикла.</para>
+    <para>Сбрасывает значения глобальных переменных к первоначальному.</para>
   </abstract>
-</article>
+  <programlisting>function restarter() {
+    inPlay = 0;
+    blankNo = 0;
+    totalBlank = &quot;&quot;;
+    lr = 1;
+    lowerLf = &quot;&quot;;
+    downLf = &quot;&quot;;
+    downNo = 0;
+    missileX = 99;
+    missileY = 99;
+    myChrx = 1;
+    myBlank = &quot;&quot;;
+    myMove = 0;
+    selec = 1;
+    starter();
+}</programlisting>
+</appendix>
