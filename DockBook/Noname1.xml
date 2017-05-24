@@ -28,52 +28,54 @@
             missileX = myChrx + 3;
         }
     }
-}</programlisting>
-  <abstract>
-    <title>Сценарий использования 2 - Управление</title>
-    <para>Пользователь нажимает кнопку Fire для стрельбы и кнопки Left Right для перемещения по полю.</para>
-    <para>Применяются стили в зависимости от выбора пользователя. Берется текущая дата.</para>
-  </abstract>
+  }
+  </programlisting>
+    <abstract>
+      <title>Сценарий использования 2 - Управление</title>
+      <para>Пользователь нажимает кнопку Fire для стрельбы и кнопки Left Right для перемещения по полю.</para>
+      <para>Применяются стили в зависимости от выбора пользователя. Берется текущая дата.</para>
+    </abstract>
   <programlisting>function starter() {
     document.fmark.win.value = cr + cr + cr + cr + cr 
         + cr + cr + &quot;Are you ready?&quot; + cr + cr + cr + &quot;Click FIRE!&quot;;
     selec = 1;
-}
-
-/**
-* Функция для перемещения влево
-*
-* Посимвольное перемещение влево
-*
-*/
-function goLeft() {
-    myMove = 0;
-    myChrx = myChrx - 1;
-    
-    if (myChrx &lt;= 0) {
-        myChrx = 1;
     }
-}
 
-/**
-* Функция для перемещения вправо
-*
-* Посимвольное перемешение вправо
-*
-*/
-function goRight() {
-    myMove = 0;
-    myChrx = myChrx + 1;
-    
-    if (myChrx &gt;= 56) {
-        myChrx = 55;
-    }
-}</programlisting>
-  <abstract>
-    <title>Сценарий использования 3 - Рестарт</title>
-    <para>Пользователь нажимает кнопку Reset для сброса игрового цикла.</para>
-    <para>Сбрасывает значения глобальных переменных к первоначальному.</para>
-  </abstract>
+  /**
+  * Функция для перемещения влево
+  *
+  * Посимвольное перемещение влево
+  *
+  */
+  function goLeft() {
+      myMove = 0;
+      myChrx = myChrx - 1;
+
+      if (myChrx &lt;= 0) {
+          myChrx = 1;
+      }
+  }
+
+  /**
+  * Функция для перемещения вправо
+  *
+  * Посимвольное перемешение вправо
+  *
+  */
+  function goRight() {
+      myMove = 0;
+      myChrx = myChrx + 1;
+
+      if (myChrx &gt;= 56) {
+          myChrx = 55;
+      }
+  }
+  </programlisting>
+    <abstract>
+      <title>Сценарий использования 3 - Рестарт</title>
+      <para>Пользователь нажимает кнопку Reset для сброса игрового цикла.</para>
+      <para>Сбрасывает значения глобальных переменных к первоначальному.</para>
+    </abstract>
   <programlisting>function restarter() {
     inPlay = 0;
     blankNo = 0;
@@ -89,5 +91,5 @@ function goRight() {
     myMove = 0;
     selec = 1;
     starter();
-}</programlisting>
+  }</programlisting>
 </appendix>
