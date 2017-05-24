@@ -1,95 +1,94 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
-<appendix>
-  <appendixinfo>
+<article>
+  <articleinfo>
     <title>Руководство программиста (Храмов М. ИПО-14Б)</title>
-    <abstract>
+    <section>
       <title>Try hard</title>
       <para>Проект Try Hard  является игрой в стиле старых космо - платформеров</para>
       <para>Играя в игру игрок погружается в воспоминания о начале игровой индустрии.</para>
-    </abstract>
-  </appendixinfo>
-  <title>Сценарий №1</title>
-  <abstract>
+    </section>
+  </articleinfo>
+  <section>
     <title>Сценарий использования 1 - Загрузка игры</title>
     <para>Пользователь нажимает кнопку Fire и начинается игра.</para>
     <para>Используются глобальные переменные и функция инициализации игры.</para>
-  </abstract>
-  <programlisting>function fire() {
-    if (inPlay == 0) {
-        if (selec == 1) {
-            selec = 9;
-            inPlay = 1;
-            init();
-        }
-    } else {
-        if (missileY == 99) {
-            missileY = 18;
-            missileX = myChrx + 3;
+    <programlisting>function fire() {
+      if (inPlay == 0) {
+          if (selec == 1) {
+              selec = 9;
+              inPlay = 1;
+              init();
+          }
+      } else {
+          if (missileY == 99) {
+              missileY = 18;
+              missileX = myChrx + 3;
+          }
+      }
+    }
+    </programlisting>
+  </section>
+  <section>
+    <title>Сценарий использования 2 - Управление</title>
+    <para>Пользователь нажимает кнопку Fire для стрельбы и кнопки Left Right для перемещения по полю.</para>
+    <para>Применяются стили в зависимости от выбора пользователя. Берется текущая дата.</para>
+    <programlisting>function starter() {
+      document.fmark.win.value = cr + cr + cr + cr + cr 
+          + cr + cr + &quot;Are you ready?&quot; + cr + cr + cr + &quot;Click FIRE!&quot;;
+      selec = 1;
+      }
+
+    /**
+    * Функция для перемещения влево
+    *
+    * Посимвольное перемещение влево
+    *
+    */
+    function goLeft() {
+        myMove = 0;
+        myChrx = myChrx - 1;
+
+        if (myChrx &lt;= 0) {
+            myChrx = 1;
         }
     }
-  }
-  </programlisting>
-    <abstract>
-      <title>Сценарий использования 2 - Управление</title>
-      <para>Пользователь нажимает кнопку Fire для стрельбы и кнопки Left Right для перемещения по полю.</para>
-      <para>Применяются стили в зависимости от выбора пользователя. Берется текущая дата.</para>
-    </abstract>
-  <programlisting>function starter() {
-    document.fmark.win.value = cr + cr + cr + cr + cr 
-        + cr + cr + &quot;Are you ready?&quot; + cr + cr + cr + &quot;Click FIRE!&quot;;
-    selec = 1;
+
+    /**
+    * Функция для перемещения вправо
+    *
+    * Посимвольное перемешение вправо
+    *
+    */
+    function goRight() {
+        myMove = 0;
+        myChrx = myChrx + 1;
+
+        if (myChrx &gt;= 56) {
+            myChrx = 55;
+        }
     }
-
-  /**
-  * Функция для перемещения влево
-  *
-  * Посимвольное перемещение влево
-  *
-  */
-  function goLeft() {
+    </programlisting>
+  </section>
+  <section>
+    <title>Сценарий использования 3 - Рестарт</title>
+    <para>Пользователь нажимает кнопку Reset для сброса игрового цикла.</para>
+    <para>Сбрасывает значения глобальных переменных к первоначальному.</para>
+    <programlisting>function restarter() {
+      inPlay = 0;
+      blankNo = 0;
+      totalBlank = &quot;&quot;;
+      lr = 1;
+      lowerLf = &quot;&quot;;
+      downLf = &quot;&quot;;
+      downNo = 0;
+      missileX = 99;
+      missileY = 99;
+      myChrx = 1;
+      myBlank = &quot;&quot;;
       myMove = 0;
-      myChrx = myChrx - 1;
-
-      if (myChrx &lt;= 0) {
-          myChrx = 1;
-      }
-  }
-
-  /**
-  * Функция для перемещения вправо
-  *
-  * Посимвольное перемешение вправо
-  *
-  */
-  function goRight() {
-      myMove = 0;
-      myChrx = myChrx + 1;
-
-      if (myChrx &gt;= 56) {
-          myChrx = 55;
-      }
-  }
-  </programlisting>
-    <abstract>
-      <title>Сценарий использования 3 - Рестарт</title>
-      <para>Пользователь нажимает кнопку Reset для сброса игрового цикла.</para>
-      <para>Сбрасывает значения глобальных переменных к первоначальному.</para>
-    </abstract>
-  <programlisting>function restarter() {
-    inPlay = 0;
-    blankNo = 0;
-    totalBlank = &quot;&quot;;
-    lr = 1;
-    lowerLf = &quot;&quot;;
-    downLf = &quot;&quot;;
-    downNo = 0;
-    missileX = 99;
-    missileY = 99;
-    myChrx = 1;
-    myBlank = &quot;&quot;;
-    myMove = 0;
-    selec = 1;
-    starter();
-  }</programlisting>
-</appendix>
+      selec = 1;
+      starter();
+    }</programlisting>
+  </section>
+</article>
